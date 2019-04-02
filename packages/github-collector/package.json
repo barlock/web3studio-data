@@ -1,0 +1,17 @@
+{
+  "name": "github-collector",
+  "version": "0.0.0",
+  "description": "Github Data Collector",
+  "author": "Web3Studio Developers <web3studio@consensys.net>",
+  "homepage": "https://github.com/ConsenSys/web3studio-data#readme",
+  "license": "Apache-2.0",
+  "main": "lib/github-collector.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConsenSys/web3studio-data.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/ConsenSys/web3studio-data/issues"
+  }
+}
