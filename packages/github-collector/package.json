@@ -1,5 +1,6 @@
 {
   "name": "github-collector",
+  "private": true,
   "version": "0.0.0",
   "description": "Github Data Collector",
   "author": "Web3Studio Developers <web3studio@consensys.net>",
@@ -10,8 +11,17 @@
     "type": "git",
     "url": "git+https://github.com/ConsenSys/web3studio-data.git"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "node ."
+  },
   "bugs": {
     "url": "https://github.com/ConsenSys/web3studio-data/issues"
+  },
+  "dependencies": {
+    "@octokit/graphql": "^2.0.2",
+    "common-tags": "^2.0.0-alpha.1",
+    "dotenv": "^7.0.0",
+    "p-do-whilst": "^1.0.0",
+    "rxjs": "^6.4.0"
   }
 }

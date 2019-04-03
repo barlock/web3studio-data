@@ -15,6 +15,24 @@ Gathering github data and sending to AWS CloudWatch
 
 <br/>
 
+## Developing
+
+Create a Github [personal access token](https://github.com/settings/tokens/new). You'll need at least `repo`, `admin:org`, and `user`
+
+Create a `.env` file in the root of this package
+
+```env
+# .env
+GITHUB_TOKEN=<YOUR_TOKEN>
+```
+
+To see the collector run locally, install deps and start it up.
+
+```bash
+$ yarn install
+$ yarn start
+```
+
 ## License
 
 [Apache 2.0](https://github.com/ConsenSys/web3studio-data/blob/master/LICENSE)
