@@ -1,4 +1,4 @@
-const doWhist = require('p-do-whilst');
+const doWhilst = require('p-do-whilst');
 
 require('dotenv').config();
 
@@ -21,7 +21,7 @@ const queryAll = async ({ query, selector, variables = {} }) => {
   let currentCursor = null;
   let data = [];
 
-  await doWhist(
+  await doWhilst(
     async () => {
       const result = await graphql(query, {
         ...variables,

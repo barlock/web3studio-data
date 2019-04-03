@@ -26,12 +26,18 @@ Create a `.env` file in the root of this package
 GITHUB_TOKEN=<YOUR_TOKEN>
 ```
 
-To see the collector run locally, install deps and start it up.
+To see the collector run locally, install deps start a local ELK service, and run the collector.
 
 ```bash
+# Start Elk
+$ docker-compose up
+
+# In a different Terminal...
 $ yarn install
 $ yarn start
 ```
+
+To see the data in Kibana, open your browser to [localhost:5601](/http://localhost:5601).
 
 ## License
 

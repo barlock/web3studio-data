@@ -1,33 +1,24 @@
-const { from, merge } = require('rxjs');
-const { publish, filter, mergeAll, map } = require('rxjs/operators');
-const organizationRepositories = require('./queries/organizationRepositories');
+const { merge } = require('rxjs');
+const { publish, finalize } = require('rxjs/operators');
+const winston = require('winston');
+const elasticTransport = require('./elasticTransport');
+const collectRepos = require('./collectRepos');
 const collectStargazers = require('./collectStargazers');
 const collectForks = require('./collectForks');
 
 module.exports = async function collect() {
-  from(organizationRepositories())
-    .pipe(
-      mergeAll(),
-      filter(repo =>
-        repo.node.repositoryTopics.edges.some(topic =>
-          topic.node.topic.name.startsWith('web3studio-')
-        )
-      ),
-      map(repo => {
-        const [owner, name] = repo.node.nameWithOwner.split('/');
+  const logger = winston.createLogger({
+    transports: [elasticTransport(), new winston.transports.Console()]
+  });
 
-        return {
-          ...repo,
-          node: {
-            ...repo.node,
-            name,
-            owner
-          }
-        };
+  collectRepos()
+    .pipe(
+      publish(repos => merge(collectStargazers(repos), collectForks(repos))),
+      finalize(() => {
+        logger.end();
       })
     )
-    .pipe(
-      publish(repos => merge(collectStargazers(repos), collectForks(repos)))
-    )
-    .subscribe(console.log); // eslint-disable-line no-console
+    .subscribe(({ event, timestamp, ...meta }) => {
+      logger.info({ message: event, timestamp: timestamp, ...meta });
+    });
 };

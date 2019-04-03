@@ -4,14 +4,21 @@ const repositoryStargazers = require('./queries/repositoryStargazers');
 
 module.exports = function collectStargazers(repos) {
   return repos.pipe(
-    mergeMap(({ node }) =>
-      from(repositoryStargazers({ name: node.name, owner: node.owner }))
-    ),
-    mergeAll(),
-    map(stargazer => ({
-      event: 'stargazer',
-      timestamp: stargazer.starredAt,
-      user: stargazer.node
-    }))
+    mergeMap(repo =>
+      from(repositoryStargazers({ name: repo.name, owner: repo.owner })).pipe(
+        mergeAll(),
+        map(stargazer => {
+          return {
+            event: 'stargazer',
+            timestamp: stargazer.starredAt,
+            meta: {
+              projects: repo.projects,
+              repo: repo.nameWithOwner,
+              user: stargazer.node
+            }
+          };
+        })
+      )
+    )
   );
 };
