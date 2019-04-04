@@ -2,16 +2,21 @@ const { from } = require('rxjs');
 const { mergeMap, mergeAll, map } = require('rxjs/operators');
 const repositoryForks = require('./queries/repositoryForks');
 
-module.exports = function collectStargazers(repos) {
+module.exports = function collectForks(repos) {
   return repos.pipe(
-    mergeMap(({ node }) =>
-      from(repositoryForks({ name: node.name, owner: node.owner }))
-    ),
-    mergeAll(),
-    map(fork => ({
-      event: 'fork',
-      timestamp: fork.node.createdAt,
-      user: fork.node.owner
-    }))
+    mergeMap(repo =>
+      from(repositoryForks({ name: repo.name, owner: repo.owner })).pipe(
+        mergeAll(),
+        map(fork => ({
+          event: 'fork',
+          timestamp: fork.node.createdAt,
+          meta: {
+            projects: repo.projects,
+            repo: repo.nameWithOwner,
+            user: fork.node.owner
+          }
+        }))
+      )
+    )
   );
 };
