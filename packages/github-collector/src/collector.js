@@ -5,6 +5,7 @@ const elasticTransport = require('./elasticTransport');
 const collectRepos = require('./collectRepos');
 const collectStargazers = require('./collectStargazers');
 const collectForks = require('./collectForks');
+const annotateUsers = require('./annotateUsers');
 
 module.exports = async function collect() {
   const logger = winston.createLogger({
@@ -14,6 +15,7 @@ module.exports = async function collect() {
   collectRepos()
     .pipe(
       publish(repos => merge(collectStargazers(repos), collectForks(repos))),
+      annotateUsers(),
       finalize(() => {
         logger.end();
       })
