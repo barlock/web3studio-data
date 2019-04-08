@@ -1,22 +1,15 @@
-const fetchMock = require('node-fetch').default;
-
 const { toArray, take } = require('rxjs/operators');
 const collectRepos = require('./collectRepos');
 const collectStargazers = require('./collectStargazers');
-const repositoryStargazers = require('../test/fixtures/repositoryStargazers');
-const organizationRepositories = require('../test/fixtures/organizationRepositories');
+const mockGithub = require('../test/fixtures/mockGithub');
 
 describe('collectStargazers', () => {
   let source;
 
-  afterAll(() => {
-    fetchMock.reset();
-  });
+  afterAll(mockGithub.afterAll);
+  beforeAll(mockGithub.beforeAll);
 
   beforeEach(() => {
-    fetchMock.once('*', () => organizationRepositories());
-    fetchMock.post('*', () => repositoryStargazers());
-
     source = collectRepos().pipe(take(1));
   });
 

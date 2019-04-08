@@ -3,7 +3,7 @@ const { queryAll } = require('./client');
 const { userFields, paging } = require('./fragements');
 
 const query = gql`
-  query repository(
+  query repositoryStargazers(
     $name: String!
     $owner: String!
     $count: Int = 100

@@ -3,7 +3,7 @@ const { queryAll } = require('./client');
 const { paging } = require('./fragements');
 
 const query = gql`
-  query repositories(
+  query organizationTeamMembers(
     $login: String!
     $slug: String!
     $count: Int = 100

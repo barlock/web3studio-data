@@ -49,8 +49,8 @@ module.exports = () => ({
             node: {
               createdAt: '2019-02-20T22:29:28Z',
               owner: {
-                id: 'MDQ6VXNlcjY5NjE1MDM=',
-                login: 'orbro'
+                id: 'MDQ6VXNlcjU2NzU=',
+                login: 'rguiu'
               }
             }
           },

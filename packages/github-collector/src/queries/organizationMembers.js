@@ -3,7 +3,7 @@ const { queryAll } = require('./client');
 const { paging } = require('./fragements');
 
 const query = gql`
-  query repositories(
+  query organizationMembers(
     $login: String!
     $count: Int = 100
     $cursor: String = null
@@ -27,7 +27,7 @@ const query = gql`
   ${paging}
 `;
 
-module.exports = (login = 'Consensys') =>
+module.exports = login =>
   queryAll({
     query,
     variables: { login },
