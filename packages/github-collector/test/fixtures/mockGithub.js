@@ -15,8 +15,12 @@ const matchQuery = query => (url, opts) => {
     .startsWith('query ' + query);
 };
 
+let requests = [];
+
 module.exports = {
   beforeAll: () => {
+    requests = [];
+
     [
       'organizationMembers',
       'organizationRepositories',
@@ -24,11 +28,18 @@ module.exports = {
       'repositoryForks',
       'repositoryStargazers'
     ].forEach(query => {
-      fetchMock.post(matchQuery(query), require(`./${query}`));
+      fetchMock.post(matchQuery(query), (uri, req) => {
+        requests.push(JSON.parse(req.body));
+        return require(`./${query}`)();
+      });
     });
+  },
+  beforeEach: () => {
+    requests = [];
   },
   afterAll: () => {
     fetchMock.reset();
   },
-  matchQuery
+  matchQuery,
+  requests: () => requests
 };

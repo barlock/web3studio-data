@@ -36,6 +36,7 @@ class TestTransport {
    */
   constructor() {
     this._transport = new TestWinstonTransport();
+    this.mockLastEvent = {};
 
     this.logger = winston.createLogger({ transports: [this._transport] });
   }
@@ -55,7 +56,7 @@ class TestTransport {
    * @returns {Promise<{}>} a fake event
    */
   async lastEventOfType() {
-    return {};
+    return this.mockLastEvent;
   }
 }
 
