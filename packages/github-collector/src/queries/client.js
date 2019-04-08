@@ -1,4 +1,5 @@
 const doWhilst = require('p-do-whilst');
+const _ = require('lodash');
 
 require('dotenv').config();
 
@@ -17,8 +18,8 @@ const graphql = require('@octokit/graphql').defaults({
  * @param {Object} ops.variables - Variables for the query
  * @returns {Promise<Array>} Results of the query
  */
-const queryAll = async ({ query, selector, variables }) => {
-  let currentCursor = null;
+const queryAll = async ({ query, selector, variables = {} }) => {
+  let currentCursor = variables.cursor || null;
   let data = [];
 
   await doWhilst(
@@ -32,7 +33,7 @@ const queryAll = async ({ query, selector, variables }) => {
 
       data = data.concat(selected.edges);
 
-      currentCursor = selected.pageInfo.hasNextPage
+      currentCursor = _.get(selected, 'pageInfo.hasNextPage', false)
         ? selected.pageInfo.endCursor
         : null;
     },
