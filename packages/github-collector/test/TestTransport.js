@@ -1,6 +1,10 @@
+const winston = require('winston');
 const Transport = require('winston-transport');
 
-module.exports = class TestTransport extends Transport {
+/**
+ * Mock Winston transport
+ */
+class TestWinstonTransport extends Transport {
   /**
    * Create a test Transport
    *
@@ -21,4 +25,38 @@ module.exports = class TestTransport extends Transport {
     this.logs.push(info);
     callback();
   }
-};
+}
+
+/**
+ * Test collector transport
+ */
+class TestTransport {
+  /**
+   * Create a new TestTransport
+   */
+  constructor() {
+    this._transport = new TestWinstonTransport();
+
+    this.logger = winston.createLogger({ transports: [this._transport] });
+  }
+
+  /**
+   * Get the logs that were logged by the logger
+   *
+   * @returns {Array} Logged logs
+   */
+  logs() {
+    return this._transport.logs;
+  }
+
+  /**
+   * Mock of real `lastEventOfType`
+   *
+   * @returns {Promise<{}>} a fake event
+   */
+  async lastEventOfType() {
+    return {};
+  }
+}
+
+module.exports = TestTransport;

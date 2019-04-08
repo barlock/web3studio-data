@@ -23,6 +23,7 @@
     "@octokit/graphql": "^2.0.2",
     "common-tags": "^2.0.0-alpha.1",
     "dotenv": "^7.0.0",
+    "elasticsearch": "^15.4.1",
     "lodash": "^4.17.11",
     "p-do-whilst": "^1.0.0",
     "rxjs": "^6.4.0",
