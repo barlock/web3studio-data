@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collectRepos has a list of projects based on topics 1`] = `
+Array [
+  Array [
+    "web3studio-internal",
+  ],
+  Array [
+    "web3studio-internal",
+  ],
+  Array [
+    "web3studio-soy",
+  ],
+  Array [
+    "web3studio-sojourn",
+  ],
+  Array [
+    "web3studio-projects",
+  ],
+  Array [
+    "web3studio-internal",
+  ],
+  Array [
+    "web3studio-internal",
+  ],
+  Array [
+    "web3studio-bootleg",
+  ],
+  Array [
+    "web3studio-blackholesum",
+  ],
+  Array [
+    "web3studio-internal",
+  ],
+  Array [
+    "web3studio-sojourn",
+  ],
+]
+`;
+
+exports[`collectRepos returns the name and owner of repos 1`] = `
+Array [
+  Object {
+    "name": "web3studio-website",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio-standards",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio-soy",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio-sojourn",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio-projects",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio-meshgame",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio-data",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio-bootleg",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio-blackHoleSum",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "web3studio",
+    "owner": "ConsenSys",
+  },
+  Object {
+    "name": "react-native-sssa",
+    "owner": "ConsenSys",
+  },
+]
+`;

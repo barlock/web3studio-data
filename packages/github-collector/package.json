@@ -12,7 +12,9 @@
     "url": "git+https://github.com/ConsenSys/web3studio-data.git"
   },
   "scripts": {
-    "start": "node ."
+    "test": "jest",
+    "start": "node .",
+    "jest": "jest"
   },
   "bugs": {
     "url": "https://github.com/ConsenSys/web3studio-data/issues"
