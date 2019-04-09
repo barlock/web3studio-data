@@ -3,7 +3,7 @@ const { queryAll } = require('./client');
 const { userFields, paging } = require('./fragements');
 
 const query = gql`
-  query repository(
+  query repositoryForks(
     $name: String = "web3studio-bootleg"
     $owner: String = "consensys"
     $count: Int = 100

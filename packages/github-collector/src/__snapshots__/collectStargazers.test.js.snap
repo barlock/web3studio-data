@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collectStargazers Collects repo stargazers and passes as events 1`] = `
+Array [
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjQ3Njk0NzA=",
+        "login": "ronaldmexico",
+      },
+    },
+    "timestamp": "2019-01-14T13:39:57Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjE5NTgxODAy",
+        "login": "john-packel",
+      },
+    },
+    "timestamp": "2019-01-15T20:01:11Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjI0NDgyNDgx",
+        "login": "mgw-sbic",
+      },
+    },
+    "timestamp": "2019-01-17T23:49:49Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjQ3MzAxNzEw",
+        "login": "nar1ta0012",
+      },
+    },
+    "timestamp": "2019-02-06T07:33:25Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjMxOTAyODkx",
+        "login": "saeeddhqan",
+      },
+    },
+    "timestamp": "2019-02-07T16:48:50Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjgzMTYxNw==",
+        "login": "igetgames",
+      },
+    },
+    "timestamp": "2019-02-17T17:10:14Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjEwMTczMw==",
+        "login": "missaugustina",
+      },
+    },
+    "timestamp": "2019-02-18T16:27:59Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjQzMDcwMjU3",
+        "login": "tjchmielewski",
+      },
+    },
+    "timestamp": "2019-02-20T10:19:47Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjM0NjE4NA==",
+        "login": "KirkBallou",
+      },
+    },
+    "timestamp": "2019-02-26T15:32:00Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjYzMjAzMTA=",
+        "login": "mcchan1",
+      },
+    },
+    "timestamp": "2019-02-28T20:07:02Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjMwOTEwOA==",
+        "login": "shayanb",
+      },
+    },
+    "timestamp": "2019-03-01T03:29:33Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjM3MDgyNjgw",
+        "login": "AmyXuHouston",
+      },
+    },
+    "timestamp": "2019-03-01T17:27:37Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjE1MTMxMTY=",
+        "login": "gbrandonthomas",
+      },
+    },
+    "timestamp": "2019-03-12T15:33:30Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjEyNzg5Njk=",
+        "login": "laurengarcia",
+      },
+    },
+    "timestamp": "2019-03-13T09:15:49Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjE3NzgzODA=",
+        "login": "scottrepreneur",
+      },
+    },
+    "timestamp": "2019-03-13T17:06:17Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjk0OTg2NDY=",
+        "login": "wpank",
+      },
+    },
+    "timestamp": "2019-03-13T17:57:45Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjQyNjgzNjA0",
+        "login": "hadasz",
+      },
+    },
+    "timestamp": "2019-03-18T15:59:04Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjEzMjUxNDQ=",
+        "login": "mikedemarais",
+      },
+    },
+    "timestamp": "2019-03-18T16:08:33Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjU3NzAwMDc=",
+        "login": "barlock",
+      },
+    },
+    "timestamp": "2019-03-18T17:51:24Z",
+  },
+  Object {
+    "event": "stargazer",
+    "meta": Object {
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjEzODg2ODY=",
+        "login": "humbitious",
+      },
+    },
+    "timestamp": "2019-03-27T11:53:44Z",
+  },
+]
+`;
