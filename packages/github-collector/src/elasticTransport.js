@@ -1,22 +1,18 @@
 const ElasticSearch = require('winston-elasticsearch');
+const doWhilst = require('p-do-whilst');
 
 // Gracefully close the application when there are no more logs
 // https://github.com/vanthome/winston-elasticsearch/issues/17#issuecomment-479679866
 ElasticSearch.prototype.end = async function() {
   const bulkWriter = this.bulkWriter;
-  bulkWriter._append = bulkWriter.append;
-
-  this.bulkWriter.append = (...args) => {
-    bulkWriter._append(...args);
-
-    process.nextTick(() => bulkWriter.flush(), 0);
-  };
-
   bulkWriter.stop();
-  await bulkWriter.flush();
+
+  await doWhilst(() => bulkWriter.flush(), () => bulkWriter.bulk.length > 0);
+
+  this.emit('finish');
 };
 
-module.exports = () =>
+module.exports = opts =>
   new ElasticSearch({
     indexPrefix: 'logs-' + Date.now(),
     transformer: data => {
@@ -29,5 +25,6 @@ module.exports = () =>
         event: data.message,
         ...meta
       };
-    }
+    },
+    ...opts
   });
