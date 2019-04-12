@@ -28,5 +28,8 @@
     "rxjs": "^6.4.0",
     "winston": "^3.2.1",
     "winston-elasticsearch": "^0.7.9"
+  },
+  "devDependencies": {
+    "nock": "^10.0.6"
   }
 }

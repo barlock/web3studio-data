@@ -13,11 +13,11 @@ const graphql = require('@octokit/graphql').defaults({
  *
  * @param {Object} ops - options
  * @param {string} ops.query - GraphQL Query
- * @param {Function} ops.selector - A function to select the salient node
+ * @param {Function} ops.selector - A function to select the salient node to page
  * @param {Object} ops.variables - Variables for the query
  * @returns {Promise<Array>} Results of the query
  */
-const queryAll = async ({ query, selector, variables = {} }) => {
+const queryAll = async ({ query, selector, variables }) => {
   let currentCursor = null;
   let data = [];
 
@@ -43,6 +43,5 @@ const queryAll = async ({ query, selector, variables = {} }) => {
 };
 
 module.exports = {
-  graphql,
   queryAll
 };
