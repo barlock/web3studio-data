@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The elasticsearch Transport can pass additional query data for the last event 1`] = `
+Object {
+  "query": Object {
+    "bool": Object {
+      "filter": Array [
+        Object {
+          "bool": Object {
+            "minimum_should_match": 1,
+            "should": Array [
+              Object {
+                "match_phrase": Object {
+                  "vanquished.keyword": "daleks",
+                },
+              },
+            ],
+          },
+        },
+        Object {
+          "bool": Object {
+            "minimum_should_match": 1,
+            "should": Array [
+              Object {
+                "match_phrase": Object {
+                  "event.keyword": "TimelordCrushedIt",
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  "size": 1,
+  "sort": Array [
+    Object {
+      "@timestamp": Object {
+        "order": "desc",
+        "unmapped_type": "boolean",
+      },
+    },
+  ],
+}
+`;
+
+exports[`The elasticsearch Transport can query the last event of a type 1`] = `
+Object {
+  "query": Object {
+    "bool": Object {
+      "filter": Array [
+        Object {
+          "bool": Object {
+            "minimum_should_match": 1,
+            "should": Array [
+              Object {
+                "match_phrase": Object {
+                  "event.keyword": "TimelordCrushedIt",
+                },
+              },
+            ],
+          },
+        },
+      ],
+    },
+  },
+  "size": 1,
+  "sort": Array [
+    Object {
+      "@timestamp": Object {
+        "order": "desc",
+        "unmapped_type": "boolean",
+      },
+    },
+  ],
+}
+`;

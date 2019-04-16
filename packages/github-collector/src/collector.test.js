@@ -17,7 +17,7 @@ describe('The collector', () => {
 
   beforeEach(() => {
     transport = new TestTransport();
-    source = collector([transport]).pipe(toArray());
+    source = collector(transport).pipe(toArray());
   });
 
   it('Collects fork events', async () => {
@@ -49,7 +49,7 @@ describe('The collector', () => {
     expect(results.length).toBeGreaterThan(0);
 
     results.forEach(({ event, ...data }, index) => {
-      const log = transport.logs[index];
+      const log = transport.logs()[index];
 
       expect(log).toEqual(
         expect.objectContaining({
