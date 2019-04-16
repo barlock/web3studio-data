@@ -1,0 +1,127 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: 'Data Collector and search for Web3Studio'
+
+Parameters:
+  ElasticsearchDomainName:
+    Type: String
+
+Resources:
+  ElasticsearchDomain:
+    Type: AWS::Elasticsearch::Domain
+    Properties:
+      DomainName: !Sub '${ElasticsearchDomainName}'
+      ElasticsearchVersion: '6.5'
+      ElasticsearchClusterConfig:
+        InstanceCount: 1
+        InstanceType: 'm4.large.elasticsearch'
+      EBSOptions:
+        EBSEnabled: true
+        Iops: 0
+        VolumeSize: 10
+        VolumeType: 'gp2'
+      SnapshotOptions:
+        AutomatedSnapshotStartHour: 0
+      AccessPolicies:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              AWS: !GetAtt AuthenticatedRole.Arn
+            Action: 'es:*'
+            Resource: !Sub 'arn:aws:es:${AWS::Region}:${AWS::AccountId}:domain/${ElasticsearchDomainName}/*'
+
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: 'KibanaUsers'
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: true
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+
+  IdentityPool:
+    Type: AWS::Cognito::IdentityPool
+    Properties:
+      IdentityPoolName: 'KibanaIDPool'
+      AllowUnauthenticatedIdentities: true
+
+  AuthenticatedPolicy:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Action:
+              - 'es:ESHttp*'
+            Resource:
+              - '*'
+
+  AuthenticatedRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action: 'sts:AssumeRoleWithWebIdentity'
+            Principal:
+              Federated: cognito-identity.amazonaws.com
+            Condition:
+              StringEquals:
+                'cognito-identity.amazonaws.com:aud': !Ref IdentityPool
+              ForAnyValue:StringLike:
+                'cognito-identity.amazonaws.com:amr': authenticated
+      ManagedPolicyArns:
+        - !Ref AuthenticatedPolicy
+
+  RoleAttachment:
+    Type: AWS::Cognito::IdentityPoolRoleAttachment
+    Properties:
+      IdentityPoolId: !Ref IdentityPool
+      Roles:
+        authenticated: !GetAtt AuthenticatedRole.Arn
+
+  CognitoServiceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: es.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonESCognitoAccess
+
+Outputs:
+  ElasticsearchDomainName:
+    Value: !Sub '${ElasticsearchDomainName}'
+    Export:
+      Name: !Sub '${AWS::StackName}-ElasticDomain'
+
+  ElasticsearchDomainEndpoint:
+    Value: !GetAtt ElasticsearchDomain.DomainEndpoint
+    Export:
+      Name: !Sub '${AWS::StackName}-ElasticDomainEndpoint'
+
+  UserPoolId:
+    Value: !Ref UserPool
+    Export:
+      Name: !Sub '${AWS::StackName}-UserPool'
+
+  IdentityPoolId:
+    Value: !Ref IdentityPool
+    Export:
+      Name: !Sub '${AWS::StackName}-IdentityPool'
+
+  EsCognitoServiceRole:
+    Value: !GetAtt CognitoServiceRole.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-EsCognitoServiceRole'
