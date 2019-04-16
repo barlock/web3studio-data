@@ -4,14 +4,18 @@ const collectRepos = require('./collectRepos');
 const collectForks = require('./collectForks');
 const annotateUsers = require('./annotateUsers');
 const mockGithub = require('../test/fixtures/mockGithub');
+const TestTransport = require('../test/TestTransport');
 
 describe('annotateUsers', () => {
   let source;
+  let transport;
 
   afterAll(mockGithub.afterAll);
   beforeAll(mockGithub.beforeAll);
 
   beforeEach(() => {
+    transport = new TestTransport();
+
     mockGithub.beforeAll();
 
     source = collectRepos().pipe(take(1));
@@ -20,7 +24,7 @@ describe('annotateUsers', () => {
   it("Adds data to users to show if they're in consensys, web3studio, or other", async () => {
     const results = await source
       .pipe(
-        collectForks,
+        collectForks(transport),
         annotateUsers(),
         map(event => event.meta.user.group),
         toArray()

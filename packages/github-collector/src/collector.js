@@ -8,7 +8,10 @@ const annotateUsers = require('./annotateUsers');
 module.exports = function collect(transport) {
   return collectRepos().pipe(
     publish(repos =>
-      merge(repos.pipe(collectStargazers), repos.pipe(collectForks))
+      merge(
+        repos.pipe(collectStargazers(transport)),
+        repos.pipe(collectForks(transport))
+      )
     ),
     annotateUsers(),
     tap(({ event, timestamp, ...meta }) => {
