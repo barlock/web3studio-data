@@ -4,3 +4,6 @@ node_modules
 coverage/
 .env
 graphql.config.json
+
+# Serverless directories
+.serverless

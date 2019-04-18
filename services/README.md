@@ -4,7 +4,7 @@
 </h1>
 
 <h4 align="center">
- Aws Resources
+  Services
 </h4>
 
 <p align="center">
@@ -18,9 +18,9 @@ AWS Specific services and lambdas for running the collector
 
 ## Developing
 
-Install dependencies `yarn install`.
+Each directory contains a [serverless](https://serverless.com/framework/docs/) service.
 
-To run a deploy run `yarn deploy`.
+Anything that can be run for development can be run with `yarn start` and every package has a `yarn deploy` that can be used to deploy individual services.
 
 ## License
 

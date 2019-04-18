@@ -10,6 +10,7 @@
     "lerna:publish": "lerna publish from-package"
   },
   "devDependencies": {
+    "aws-sdk": "^2.438.0",
     "eslint": "^5.16.0",
     "eslint-config-web3studio": "^1.2.0",
     "fetch-mock": "^7.3.1",
@@ -17,11 +18,14 @@
     "jest": "^24.7.1",
     "lerna": "^3.5.0",
     "prettier": "^1.16.4",
-    "pretty-quick": "^1.10.0"
+    "pretty-quick": "^1.10.0",
+    "serverless": "^1.41.0",
+    "serverless-cf-vars": "^0.3.1"
   },
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "services/*"
     ]
   },
   "husky": {
