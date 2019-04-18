@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
 
 const AWS = require('aws-sdk');
+const serverlessState = require('./.serverless/serverless-state.json');
 
-const region = 'us-east-1';
-const stackName = 'collector-elasticsearch';
+const region = serverlessState.service.provider.region;
+const stackName = serverlessState.service.custom.stackName;
 const userPoolDomainName = stackName;
 
 /**
