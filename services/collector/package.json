@@ -11,11 +11,19 @@
     "url": "git+https://github.com/ConsenSys/web3studio-data.git"
   },
   "scripts": {
-    "deploy": "./deploy.sh"
+    "deploy": "serverless deploy",
+    "start": "serverless invoke local -f collect",
+    "invoke": "serverless invoke -f collect"
   },
   "bugs": {
     "url": "https://github.com/ConsenSys/web3studio-data/issues"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "elastic-transport": "^0.0.0",
+    "github-collector": "^0.0.0",
+    "http-aws-es": "^6.0.0"
+  },
+  "devDependencies": {
+    "serverless-plugin-include-dependencies": "^3.2.1"
+  }
 }
