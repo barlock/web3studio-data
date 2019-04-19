@@ -1,6 +1,5 @@
 const ElasticTransport = require('./ElasticTransport');
-const mockGithub = require('../test/fixtures/mockGithub');
-const mockElasticsearch = require('../test/fixtures/mockElasticsearch');
+const mockElasticsearch = require('../test/mockElasticsearch');
 
 /**
  * Create a test event
@@ -18,12 +17,10 @@ describe('The elasticsearch Transport', () => {
   let transport;
 
   beforeAll(() => {
-    mockGithub.beforeAll();
     mockElasticsearch.beforeAll();
   });
 
   afterAll(() => {
-    mockGithub.afterAll();
     mockElasticsearch.afterAll();
   });
 

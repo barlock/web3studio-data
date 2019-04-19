@@ -1,6 +1,6 @@
 const winston = require('winston');
 const collector = require('./src/collector');
-const ElasticTransport = require('./src/ElasticTransport');
+const ElasticTransport = require('elastic-transport');
 
 const elasticTransport = new ElasticTransport({
   transports: [new winston.transports.Console()]

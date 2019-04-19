@@ -1,33 +1,31 @@
 {
-  "name": "github-collector",
+  "name": "elastic-transport",
   "private": true,
   "version": "0.0.0",
-  "description": "Github Data Collector",
+  "description": "Elastic transport for Data Collectors",
   "author": "Web3Studio Developers <web3studio@consensys.net>",
   "homepage": "https://github.com/ConsenSys/web3studio-data#readme",
   "license": "Apache-2.0",
-  "main": "src/collector.js",
+  "main": "src/ElasticTransport.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ConsenSys/web3studio-data.git"
   },
   "scripts": {
     "test": "jest",
-    "start": "node index.js",
     "jest": "jest"
   },
   "bugs": {
     "url": "https://github.com/ConsenSys/web3studio-data/issues"
   },
   "dependencies": {
-    "@octokit/graphql": "^2.0.2",
-    "common-tags": "^2.0.0-alpha.1",
-    "dotenv": "^7.0.0",
-    "elastic-transport": "^0.0.0",
+    "elasticsearch": "^15.4.1",
     "lodash": "^4.17.11",
-    "node-fetch": "^2.3.0",
     "p-do-whilst": "^1.0.0",
-    "rxjs": "^6.4.0",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "winston-elasticsearch": "^0.7.9"
+  },
+  "devDependencies": {
+    "nock": "^10.0.6"
   }
 }
