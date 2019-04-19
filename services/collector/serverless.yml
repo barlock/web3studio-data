@@ -1,0 +1,19 @@
+service: collector-lambda
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'dev'}
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Resource: '*'
+      Action:
+        - 'es:ESHttp*'
+
+functions:
+  collect:
+    handler: lambda.handler
+
+    environment:
+      ELASTIC_ENDPOINT: ${cf:collector-elasticsearch-${self:provider.stage}.ElasticsearchDomainEndpoint}

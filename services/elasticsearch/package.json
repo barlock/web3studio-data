@@ -1,0 +1,19 @@
+{
+  "name": "service-elasticsearch",
+  "private": true,
+  "version": "0.0.0",
+  "description": "AWS ES for the collector",
+  "author": "Web3Studio Developers <web3studio@consensys.net>",
+  "homepage": "https://github.com/ConsenSys/web3studio-data#readme",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ConsenSys/web3studio-data.git"
+  },
+  "scripts": {
+    "deploy": "./deploy.sh"
+  },
+  "bugs": {
+    "url": "https://github.com/ConsenSys/web3studio-data/issues"
+  }
+}

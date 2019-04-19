@@ -25,6 +25,7 @@
     "dotenv": "^7.0.0",
     "elasticsearch": "^15.4.1",
     "lodash": "^4.17.11",
+    "node-fetch": "^2.3.0",
     "p-do-whilst": "^1.0.0",
     "rxjs": "^6.4.0",
     "winston": "^3.2.1",

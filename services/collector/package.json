@@ -1,8 +1,8 @@
 {
-  "name": "aws",
+  "name": "service-collector",
   "private": true,
   "version": "0.0.0",
-  "description": "AWS Resources for the collector",
+  "description": "AWS lambda for the collector",
   "author": "Web3Studio Developers <web3studio@consensys.net>",
   "homepage": "https://github.com/ConsenSys/web3studio-data#readme",
   "license": "Apache-2.0",
@@ -16,7 +16,6 @@
   "bugs": {
     "url": "https://github.com/ConsenSys/web3studio-data/issues"
   },
-  "dependencies": {
-    "aws-sdk": "^2.438.0"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
