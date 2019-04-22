@@ -11,7 +11,7 @@
   <a href="#license">License</a>
 </p>
 
-Gathering github data and sending to AWS CloudWatch
+Gathering github data and sending to a logger
 
 <br/>
 
@@ -26,7 +26,7 @@ Create a `.env` file in the root of this package
 GITHUB_TOKEN=<YOUR_TOKEN>
 ```
 
-To see the collector run locally, install deps start a local ELK service, and run the collector.
+To see the collector run locally, install deps, start a local ELK service, and run the collector.
 
 ```bash
 # Start Elk
