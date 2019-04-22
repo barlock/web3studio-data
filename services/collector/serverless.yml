@@ -3,7 +3,7 @@ service: collector-lambda
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: ${opt:stage, 'dev'}
+  stage: ${env:SERVERLESS_STAGE, 'dev'}
   timeout: 300
   region: us-east-1
   iamRoleStatements:
