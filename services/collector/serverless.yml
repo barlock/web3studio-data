@@ -3,17 +3,23 @@ service: collector-lambda
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: ${opt:stage, 'dev'}
+  stage: ${env:SERVERLESS_STAGE, 'dev'}
+  timeout: 300
   region: us-east-1
   iamRoleStatements:
     - Effect: 'Allow'
       Resource: '*'
       Action:
-        - 'es:ESHttp*'
+        - 'es:*'
+
+plugins:
+  - serverless-plugin-include-dependencies
 
 functions:
   collect:
     handler: lambda.handler
-
     environment:
       ELASTIC_ENDPOINT: ${cf:collector-elasticsearch-${self:provider.stage}.ElasticsearchDomainEndpoint}
+      GITHUB_TOKEN: ${env:GITHUB_TOKEN}
+    events:
+      - schedule: rate(24 hours)

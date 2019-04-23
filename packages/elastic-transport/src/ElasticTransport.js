@@ -4,8 +4,6 @@ const ElasticSearch = require('winston-elasticsearch');
 const doWhilst = require('p-do-whilst');
 const _ = require('lodash');
 
-const client = new Client({ host: 'http://localhost:9200' });
-
 // Gracefully close the application when there are no more logs
 // https://github.com/vanthome/winston-elasticsearch/issues/17#issuecomment-479679866
 ElasticSearch.prototype.end = async function() {
@@ -31,7 +29,6 @@ class ElasticTransport {
    */
   constructor({ clientOpts, transports = [], ...opts } = {}) {
     this._client = new Client({
-      host: 'http://localhost:9200',
       ...clientOpts
     });
 
@@ -39,7 +36,7 @@ class ElasticTransport {
       transports: [
         ...transports,
         new ElasticSearch({
-          client,
+          client: this._client,
           indexPrefix: 'logs-' + Date.now(),
           transformer: data => {
             const { timestamp, meta } = data.meta;

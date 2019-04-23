@@ -5,6 +5,7 @@
     "test": "yarn lint && yarn test:packages",
     "test:packages": "lerna run test",
     "lint": "yarn eslint .",
+    "deploy": "lerna run deploy --scope service-elasticsearch && lerna run deploy --scope service-collector",
     "prettier": "prettier \"**/*.{js,json,css,md}\" --write",
     "lerna:version": "lerna version --no-push",
     "lerna:publish": "lerna publish from-package"

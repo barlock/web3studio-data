@@ -10,6 +10,9 @@ cache:
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
+  - echo "Installing AWS CLI"
+  - pip install --upgrade --user awscli aws-sam-cli
+
 branches:
   only:
     - master
@@ -20,6 +23,11 @@ before_deploy:
 deploy:
   - provider: script
     script: 'yarn lerna:publish --yes'
+    skip_cleanup: true
+    on:
+      branch: master
+  - provider: script
+    script: 'SERVERLESS_STAGE=prod yarn deploy'
     skip_cleanup: true
     on:
       branch: master
