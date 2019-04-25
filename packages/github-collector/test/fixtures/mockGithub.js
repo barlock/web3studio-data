@@ -26,7 +26,9 @@ module.exports = {
       'organizationRepositories',
       'organizationTeamMembers',
       'repositoryForks',
-      'repositoryStargazers'
+      'repositoryStargazers',
+      'repositoryIssues',
+      'repositoryIssueTimeline'
     ].forEach(query => {
       fetchMock.post(matchQuery(query), (uri, req) => {
         requests.push(JSON.parse(req.body));

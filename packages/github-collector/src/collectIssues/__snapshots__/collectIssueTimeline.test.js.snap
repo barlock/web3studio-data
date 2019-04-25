@@ -1,0 +1,618 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collectIssueTimeline Collects repo issue timelines and passes as events 1`] = `
+Array [
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTg0MjczNzY=",
+      "issueNumber": 1,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTg0MjczNzY=",
+      "issueNumber": 1,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTkyNzY0ODQ=",
+      "issueNumber": 3,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTkyNzY0ODQ=",
+      "issueNumber": 3,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTkyOTI4MjM=",
+      "issueNumber": 4,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTkyOTI4MjM=",
+      "issueNumber": 4,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk0ODExNDU=",
+      "issueNumber": 5,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk0ODExNDU=",
+      "issueNumber": 5,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk1MjYwNjU=",
+      "issueNumber": 8,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk1MjYwNjU=",
+      "issueNumber": 8,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk1MjYzMTU=",
+      "issueNumber": 9,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk1MjYzMTU=",
+      "issueNumber": 9,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk1MjY2MzI=",
+      "issueNumber": 10,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk1MjY2MzI=",
+      "issueNumber": 10,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk5MDczMzY=",
+      "issueNumber": 11,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk5MDczMzY=",
+      "issueNumber": 11,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk5MTY1MTE=",
+      "issueNumber": 12,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk5MTY1MTE=",
+      "issueNumber": 12,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk5NzQyMDM=",
+      "issueNumber": 13,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk5NzQyMDM=",
+      "issueNumber": 13,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk5NzU3MjI=",
+      "issueNumber": 14,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk5NzU3MjI=",
+      "issueNumber": 14,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWUzOTk5ODE2MTA=",
+      "issueNumber": 15,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWUzOTk5ODE2MTA=",
+      "issueNumber": 15,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWU0MDAzMzA5OTQ=",
+      "issueNumber": 16,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWU0MDAzMzA5OTQ=",
+      "issueNumber": 16,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWU0MDA0NDA2NzY=",
+      "issueNumber": 17,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWU0MDA0NDA2NzY=",
+      "issueNumber": 17,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWU0MDA0NDEwMTg=",
+      "issueNumber": 18,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWU0MDA0NDEwMTg=",
+      "issueNumber": 18,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWU0MDA0NDY5NTE=",
+      "issueNumber": 19,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWU0MDA0NDY5NTE=",
+      "issueNumber": 19,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "Mg",
+      "issueId": "MDU6SXNzdWU0MDA1MTYyOTE=",
+      "issueNumber": 20,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T13:58:09Z",
+  },
+  Object {
+    "event": "timeline",
+    "meta": Object {
+      "cursor": "NA",
+      "issueId": "MDU6SXNzdWU0MDA1MTYyOTE=",
+      "issueNumber": 20,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "type": "IssueComment",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-18T17:20:16Z",
+  },
+]
+`;

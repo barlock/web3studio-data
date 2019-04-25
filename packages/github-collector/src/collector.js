@@ -3,6 +3,7 @@ const { publish, tap, finalize } = require('rxjs/operators');
 const collectRepos = require('./collectRepos');
 const collectStargazers = require('./collectStargazers');
 const collectForks = require('./collectForks');
+const collectIssues = require('./collectIssues');
 const annotateUsers = require('./annotateUsers');
 
 module.exports = function collect(transport) {
@@ -10,7 +11,8 @@ module.exports = function collect(transport) {
     publish(repos =>
       merge(
         repos.pipe(collectStargazers(transport)),
-        repos.pipe(collectForks(transport))
+        repos.pipe(collectForks(transport)),
+        repos.pipe(collectIssues(transport))
       )
     ),
     annotateUsers(),

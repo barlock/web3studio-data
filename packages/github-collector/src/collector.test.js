@@ -34,6 +34,13 @@ describe('The collector', () => {
     expect(stargazers.length).toBeGreaterThan(0);
   });
 
+  it('Collects timeline events', async () => {
+    const results = await source.toPromise();
+    const stargazers = results.filter(event => event.event === 'timeline');
+
+    expect(stargazers.length).toBeGreaterThan(0);
+  });
+
   it('annotates events with user groups', async () => {
     const results = await source.toPromise();
 

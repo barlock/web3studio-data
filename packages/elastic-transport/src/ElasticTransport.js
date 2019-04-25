@@ -63,7 +63,7 @@ class ElasticTransport {
    * @returns {Promise<Object>} The event
    */
   async lastEventOfType(eventType, query = {}) {
-    const result = await this._client.search({
+    const searchParams = {
       body: {
         sort: [{ '@timestamp': { order: 'desc', unmapped_type: 'boolean' } }],
         query: {
@@ -92,7 +92,9 @@ class ElasticTransport {
         },
         size: 1
       }
-    });
+    };
+
+    const result = await this._client.search(searchParams);
 
     return _.get(result, 'hits.hits[0]._source', {});
   }
