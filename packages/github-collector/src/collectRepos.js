@@ -1,10 +1,9 @@
-const { from } = require('rxjs');
-const { filter, mergeAll, map } = require('rxjs/operators');
+const { filter, map } = require('rxjs/operators');
 const organizationRepositories = require('./queries/organizationRepositories');
+const { fromQuery } = require('./util');
 
 module.exports = function collectRepos() {
-  return from(organizationRepositories()).pipe(
-    mergeAll(),
+  return fromQuery(organizationRepositories()).pipe(
     map(repo => {
       const { repositoryTopics, ...nodeProps } = repo.node;
       const [owner, name] = repo.node.nameWithOwner.split('/');
