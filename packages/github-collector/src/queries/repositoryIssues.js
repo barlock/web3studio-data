@@ -24,6 +24,12 @@ const repositoryIssues = gql`
                 cursor
               }
             }
+
+            reactions(last: 1) {
+              edges {
+                cursor
+              }
+            }
           }
         }
       }
@@ -81,6 +87,37 @@ const repositoryIssueTimeline = gql`
   ${userFields}
 `;
 
+const repositoryIssueReactions = gql`
+  query repositoryIssueReactions(
+    $id: ID!
+    $count: Int = 100
+    $cursor: String = null
+  ) {
+    node(id: $id) {
+      ... on Issue {
+        reactions(first: $count, after: $cursor) {
+          pageInfo {
+            ...paging
+          }
+          edges {
+            cursor
+            node {
+              createdAt
+              content
+              user {
+                ...userFields
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ${paging}
+  ${userFields}
+`;
+
 module.exports = {
   queryIssues: variables =>
     queryAll({
@@ -93,5 +130,11 @@ module.exports = {
       query: repositoryIssueTimeline,
       variables,
       selector: ({ node }) => node.timeline
+    }),
+  queryIssueReactions: variables =>
+    queryAll({
+      query: repositoryIssueReactions,
+      variables,
+      selector: ({ node }) => node.reactions
     })
 };

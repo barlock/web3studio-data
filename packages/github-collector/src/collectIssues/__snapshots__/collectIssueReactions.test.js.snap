@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`collectIssueReactions Collects repo issue reactions and passes as events 1`] = `
+Array [
+  Object {
+    "event": "issueReaction",
+    "meta": Object {
+      "content": "EYES",
+      "cursor": "Y3Vyc29yOnYyOpHOAmUztw==",
+      "issueId": "MDU6SXNzdWUzOTg0MjczNzY=",
+      "issueNumber": 1,
+      "projects": Array [
+        "web3studio-internal",
+      ],
+      "repo": "ConsenSys/web3studio-website",
+      "user": Object {
+        "id": "MDQ6VXNlcjE2MjQ=",
+        "login": "breakpointer",
+      },
+    },
+    "timestamp": "2019-04-04T15:59:36Z",
+  },
+]
+`;

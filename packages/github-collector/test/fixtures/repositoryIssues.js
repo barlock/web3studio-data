@@ -1,4 +1,9 @@
-module.exports = () => ({
+/**
+ * Get fixtures for repository issues
+ *
+ * @returns {Object} issue fixture
+ */
+const fixture = () => ({
   data: {
     repository: {
       issues: {
@@ -17,6 +22,13 @@ module.exports = () => ({
                     cursor: 'MjM'
                   }
                 ]
+              },
+              reactions: {
+                edges: [
+                  {
+                    cursor: 'Y3Vyc29yOnYyOpHOAnplcQ=='
+                  }
+                ]
               }
             }
           },
@@ -30,6 +42,9 @@ module.exports = () => ({
                     cursor: 'MQ'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -43,6 +58,9 @@ module.exports = () => ({
                     cursor: 'MTI'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -56,6 +74,9 @@ module.exports = () => ({
                     cursor: 'MTE'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -69,6 +90,9 @@ module.exports = () => ({
                     cursor: 'NQ'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -82,6 +106,9 @@ module.exports = () => ({
                     cursor: 'OA'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -95,6 +122,9 @@ module.exports = () => ({
                     cursor: 'NQ'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -108,6 +138,9 @@ module.exports = () => ({
                     cursor: 'OQ'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -121,6 +154,9 @@ module.exports = () => ({
                     cursor: 'MTA'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -134,6 +170,9 @@ module.exports = () => ({
                     cursor: 'Mw'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -147,6 +186,9 @@ module.exports = () => ({
                     cursor: 'Mw'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -160,6 +202,9 @@ module.exports = () => ({
                     cursor: 'Mw'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -173,6 +218,9 @@ module.exports = () => ({
                     cursor: 'MTA'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -186,6 +234,9 @@ module.exports = () => ({
                     cursor: 'OQ'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -199,6 +250,9 @@ module.exports = () => ({
                     cursor: 'MQ'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -212,6 +266,9 @@ module.exports = () => ({
                     cursor: 'OA'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           },
@@ -225,6 +282,9 @@ module.exports = () => ({
                     cursor: 'OQ'
                   }
                 ]
+              },
+              reactions: {
+                edges: []
               }
             }
           }
@@ -233,3 +293,13 @@ module.exports = () => ({
     }
   }
 });
+
+/**
+ * Get the edges that you care about from this fixture
+ *
+ * @returns {Object} Issue edges
+ */
+const edges = () => fixture().data.repository.issues.edges;
+
+module.exports = fixture;
+module.exports.edges = edges;

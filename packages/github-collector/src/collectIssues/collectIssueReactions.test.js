@@ -5,7 +5,7 @@ const mockGithub = require('../../test/fixtures/mockGithub');
 const repositoryIssues = require('../../test/fixtures/repositoryIssues');
 const TestTransport = require('../../test/TestTransport');
 
-describe('collectIssueTimeline', () => {
+describe('collectIssueReactions', () => {
   let source;
   let transport;
 
@@ -18,7 +18,7 @@ describe('collectIssueTimeline', () => {
     collectRepos().pipe(
       take(1),
       collectIssues(transport),
-      filter(event => event.event === 'timeline'),
+      filter(event => event.event === 'issueReaction'),
       toArray()
     );
 
@@ -31,10 +31,10 @@ describe('collectIssueTimeline', () => {
     source = createSource();
   });
 
-  it('Collects repo issue timelines and passes as events', async () => {
+  it('Collects repo issue reactions and passes as events', async () => {
     const results = await source.toPromise();
 
-    expect(results.length).toEqual(34);
+    expect(results.length).toEqual(1);
 
     expect(results).toMatchSnapshot();
   });
@@ -53,19 +53,19 @@ describe('collectIssueTimeline', () => {
     expect(hasCursor).toEqual(true);
   });
 
-  it('skips timeline requests when the last cursor exists', async () => {
+  it('skips reaction requests when the last cursor exists', async () => {
     const issues = repositoryIssues.edges();
 
     transport.mockLastEvent = {
       // Phew, that's a long path
-      cursor: issues[0].node.timeline.edges[0].cursor
+      cursor: issues[0].node.reactions.edges[0].cursor
     };
 
     await source.toPromise();
 
     const requests = mockGithub
       .requests()
-      .filter(request => request.query.includes('repositoryIssueTimeline'));
+      .filter(request => request.query.includes('repositoryIssueReactions'));
 
     // `issues.length`, total possible timeline fetches,
     // `- 1`, we're not fetching one b/c of the cursor

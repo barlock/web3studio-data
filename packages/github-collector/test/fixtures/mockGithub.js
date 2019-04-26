@@ -28,7 +28,8 @@ module.exports = {
       'repositoryForks',
       'repositoryStargazers',
       'repositoryIssues',
-      'repositoryIssueTimeline'
+      'repositoryIssueTimeline',
+      'repositoryIssueReactions'
     ].forEach(query => {
       fetchMock.post(matchQuery(query), (uri, req) => {
         requests.push(JSON.parse(req.body));
