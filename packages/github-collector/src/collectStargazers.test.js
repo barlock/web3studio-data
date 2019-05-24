@@ -5,8 +5,12 @@ const mockGithub = require('../test/fixtures/mockGithub');
 const TestTransport = require('../test/TestTransport');
 
 describe('collectStargazers', () => {
-  let source;
+  let source$;
   let transport;
+  const ops = {
+    organizations: [{ login: 'consensys', teams: ['web3studio'] }],
+    projectTopicFilters: ['web3studio-']
+  };
 
   afterAll(mockGithub.afterAll);
   beforeAll(mockGithub.beforeAll);
@@ -14,11 +18,11 @@ describe('collectStargazers', () => {
   beforeEach(() => {
     mockGithub.beforeEach();
     transport = new TestTransport();
-    source = collectRepos().pipe(take(1));
+    source$ = collectRepos(ops).pipe(take(1));
   });
 
   it('Collects repo stargazers and passes as events', async () => {
-    const results = await source
+    const results = await source$
       .pipe(
         collectStargazers(transport),
         toArray()
@@ -33,7 +37,7 @@ describe('collectStargazers', () => {
   it('Picks up from the last cursor', async () => {
     transport.mockLastEvent = { cursor: 'someCursor' };
 
-    await source
+    await source$
       .pipe(
         collectStargazers(transport),
         toArray()

@@ -6,7 +6,7 @@ const repositoryIssues = require('../../test/fixtures/repositoryIssues');
 const TestTransport = require('../../test/TestTransport');
 
 describe('collectIssueReactions', () => {
-  let source;
+  let source$;
   let transport;
 
   /**
@@ -15,7 +15,10 @@ describe('collectIssueReactions', () => {
    * @returns {Observable} Test Observable
    */
   const createSource = () =>
-    collectRepos().pipe(
+    collectRepos({
+      organizations: [{ name: 'consensys', teams: ['web3studio'] }],
+      projectTopicFilters: ['web3studio-']
+    }).pipe(
       take(1),
       collectIssues(transport),
       filter(event => event.event === 'issueReaction'),
@@ -28,11 +31,11 @@ describe('collectIssueReactions', () => {
   beforeEach(() => {
     mockGithub.beforeEach();
     transport = new TestTransport();
-    source = createSource();
+    source$ = createSource();
   });
 
   it('Collects repo issue reactions and passes as events', async () => {
-    const results = await source.toPromise();
+    const results = await source$.toPromise();
 
     expect(results.length).toEqual(1);
 
@@ -42,7 +45,7 @@ describe('collectIssueReactions', () => {
   it('Picks up from the last cursor', async () => {
     transport.mockLastEvent = { cursor: 'someCursor' };
 
-    await source.toPromise();
+    await source$.toPromise();
 
     const requests = mockGithub.requests();
 
@@ -61,7 +64,7 @@ describe('collectIssueReactions', () => {
       cursor: issues[0].node.reactions.edges[0].cursor
     };
 
-    await source.toPromise();
+    await source$.toPromise();
 
     const requests = mockGithub
       .requests()

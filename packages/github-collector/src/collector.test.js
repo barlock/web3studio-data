@@ -17,7 +17,9 @@ describe('The collector', () => {
 
   beforeEach(() => {
     transport = new TestTransport();
-    source = collector(transport).pipe(toArray());
+    source = collector(transport, {
+      organizations: [{ name: 'consensys', teams: ['web3studio'] }]
+    }).pipe(toArray());
   });
 
   it('Collects fork events', async () => {
@@ -47,7 +49,7 @@ describe('The collector', () => {
     expect(results.length).toBeGreaterThan(0);
 
     results.forEach(event => {
-      expect(event).toHaveProperty('meta.user.group');
+      expect(event).toHaveProperty('meta.user.orgs');
     });
   });
 

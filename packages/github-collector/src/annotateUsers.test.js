@@ -7,8 +7,12 @@ const mockGithub = require('../test/fixtures/mockGithub');
 const TestTransport = require('../test/TestTransport');
 
 describe('annotateUsers', () => {
-  let source;
+  let source$;
   let transport;
+  const ops = {
+    organizations: [{ login: 'consensys', teams: ['web3studio'] }],
+    projectTopicFilters: ['web3studio-']
+  };
 
   afterAll(mockGithub.afterAll);
   beforeAll(mockGithub.beforeAll);
@@ -18,15 +22,18 @@ describe('annotateUsers', () => {
 
     mockGithub.beforeAll();
 
-    source = collectRepos().pipe(take(1));
+    source$ = collectRepos(ops).pipe(take(1));
   });
 
-  it("Adds data to users to show if they're in consensys, web3studio, or other", async () => {
-    const results = await source
+  it('Adds data to users to show orgs and teams', async () => {
+    const results = await source$
       .pipe(
         collectForks(transport),
-        annotateUsers(),
-        map(event => event.meta.user.group),
+        annotateUsers(ops),
+        map(event => ({
+          orgs: event.meta.user.orgs,
+          teams: event.meta.user.teams
+        })),
         toArray()
       )
       .toPromise();
@@ -39,13 +46,13 @@ describe('annotateUsers', () => {
   it("passes events that don't contain user data untouched", async () => {
     const event = {
       event: 'ci-passed',
-      timetamp: Date.now(),
+      timestamp: Date.now(),
       meta: {
         commit: 'f10dcce'
       }
     };
     const results = await from([event])
-      .pipe(annotateUsers())
+      .pipe(annotateUsers(ops))
       .toPromise();
 
     expect(results).toEqual(event);

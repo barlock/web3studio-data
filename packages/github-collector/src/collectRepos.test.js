@@ -5,6 +5,8 @@ const collectRepos = require('./collectRepos');
 const orgReposResponse = require('../test/fixtures/organizationRepositories');
 
 describe('collectRepos', () => {
+  let source$;
+
   beforeAll(() => {
     fetchMock.post('*', () => orgReposResponse());
   });
@@ -13,10 +15,15 @@ describe('collectRepos', () => {
     fetchMock.reset();
   });
 
+  beforeEach(() => {
+    source$ = collectRepos({
+      organizations: [{ name: 'consensys', teams: ['web3studio'] }],
+      projectTopicFilters: ['web3studio-']
+    });
+  });
+
   it("filters repos that don't have web3studio project topics", async () => {
-    const results = await collectRepos()
-      .pipe(toArray())
-      .toPromise();
+    const results = await source$.pipe(toArray()).toPromise();
 
     expect(results.length).toEqual(11);
 
@@ -28,7 +35,7 @@ describe('collectRepos', () => {
   });
 
   it('returns the name and owner of repos', async () => {
-    const results = await collectRepos()
+    const results = await source$
       .pipe(
         map(repo => ({ name: repo.name, owner: repo.owner })),
         toArray()
@@ -39,7 +46,7 @@ describe('collectRepos', () => {
   });
 
   it('has a list of projects based on topics', async () => {
-    const projects = await collectRepos()
+    const projects = await source$
       .pipe(
         map(repo => repo.projects),
         toArray()

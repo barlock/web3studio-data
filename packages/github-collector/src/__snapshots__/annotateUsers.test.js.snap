@@ -1,13 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`annotateUsers Adds data to users to show if they're in consensys, web3studio, or other 1`] = `
+exports[`annotateUsers Adds data to users to show orgs and teams 1`] = `
 Array [
-  "web3studio",
-  "other",
-  "web3studio",
-  "web3studio",
-  "consensys",
-  "other",
-  "other",
+  Object {
+    "orgs": Array [
+      "consensys",
+    ],
+    "teams": Array [
+      "web3studio",
+    ],
+  },
+  Object {
+    "orgs": Array [],
+    "teams": Array [],
+  },
+  Object {
+    "orgs": Array [],
+    "teams": Array [
+      "web3studio",
+    ],
+  },
+  Object {
+    "orgs": Array [],
+    "teams": Array [
+      "web3studio",
+    ],
+  },
+  Object {
+    "orgs": Array [
+      "consensys",
+    ],
+    "teams": Array [],
+  },
+  Object {
+    "orgs": Array [],
+    "teams": Array [],
+  },
+  Object {
+    "orgs": Array [],
+    "teams": Array [],
+  },
 ]
 `;
