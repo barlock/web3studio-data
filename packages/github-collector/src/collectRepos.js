@@ -1,14 +1,24 @@
-const { filter, map } = require('rxjs/operators');
+const { concat } = require('rxjs');
+const { filter, map, mergeAll } = require('rxjs/operators');
 const organizationRepositories = require('./queries/organizationRepositories');
 const { fromQuery } = require('./util');
 
-module.exports = function collectRepos() {
-  return fromQuery(organizationRepositories()).pipe(
+module.exports = function collectRepos({ organizations, projectTopicFilters }) {
+  return concat(
+    organizations.map(org =>
+      fromQuery(organizationRepositories({ login: org.login }))
+    )
+  ).pipe(
+    mergeAll(),
     map(repo => {
       const { repositoryTopics, ...nodeProps } = repo.node;
       const [owner, name] = repo.node.nameWithOwner.split('/');
       const topics = repositoryTopics.edges.map(({ node }) => node.topic.name);
-      const projects = topics.filter(topic => topic.startsWith('web3studio-'));
+      const projects =
+        projectTopicFilters &&
+        topics.filter(topic =>
+          projectTopicFilters.some(filter => topic.includes(filter))
+        );
 
       return {
         ...nodeProps,
@@ -17,6 +27,6 @@ module.exports = function collectRepos() {
         name
       };
     }),
-    filter(repo => repo.projects.length > 0)
+    filter(repo => !projectTopicFilters || repo.projects.length > 0)
   );
 };

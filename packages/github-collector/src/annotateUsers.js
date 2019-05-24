@@ -7,47 +7,57 @@ const _ = require('lodash');
 /**
  * Augment user objects found in events
  *
+ * @param {Array<Object>} organizations - List of organizations to annotate users with
  * @returns {Function} Observable Function
  */
-module.exports = () => source => {
-  // Source of all consensys members as an array of IDs
-  const consensysMembers = combineLatest(
-    from(organizationMembers('consensys')),
-    from(organizationMembers('trufflesuite')),
-    from(organizationMembers('infura'))
-  ).pipe(
-    map(orgs =>
-      _(orgs)
-        .flatMap(org => org.map(user => user.node.id))
-        .uniq()
-        .value()
+module.exports = ({ organizations }) => source$ => {
+  // Source of all organization members as an array of IDs
+  const organizationMembers$ = combineLatest(
+    organizations.map(org =>
+      from(organizationMembers(org.login)).pipe(
+        map(orgMembers => ({
+          login: org.login,
+          members: orgMembers.map(user => user.node.id)
+        }))
+      )
     )
   );
 
-  // Source of all web3studio members as an array of IDs
-  const web3studioMembers = from(
-    organizationTeamMembers('consensys', 'web3studio')
-  ).pipe(map(users => users.map(user => user.node.id)));
+  const teamMembers$ = combineLatest(
+    _(organizations)
+      .filter(org => org.teams)
+      .flatMap(org =>
+        org.teams.map(team =>
+          from(organizationTeamMembers(org.login, team)).pipe(
+            map(users => ({
+              team,
+              members: users.map(user => user.node.id)
+            }))
+          )
+        )
+      )
+      .value()
+  );
 
   // Add `group` based on known github organizations and teams
-  return combineLatest(source, consensysMembers, web3studioMembers).pipe(
-    map(([event, consensys, web3studio]) => {
+  return combineLatest(source$, organizationMembers$, teamMembers$).pipe(
+    map(([event, organizations, teams]) => {
       const user = event.meta.user;
-      let group = '';
 
       if (!user) {
         return event;
       }
 
-      if (web3studio.includes(user.id)) {
-        group = 'web3studio';
-      } else if (consensys.includes(user.id)) {
-        group = 'consensys';
-      } else {
-        group = 'other';
-      }
+      const userOrgs = organizations
+        .filter(org => org.members.includes(user.id))
+        .map(org => org.login);
 
-      event.meta.user.group = group;
+      const userTeams = teams
+        .filter(team => team.members.includes(user.id))
+        .map(team => team.team);
+
+      event.meta.user.orgs = userOrgs;
+      event.meta.user.teams = userTeams;
 
       return event;
     })

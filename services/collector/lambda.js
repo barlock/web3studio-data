@@ -13,7 +13,14 @@ module.exports.handler = () => {
     transports: [new winston.transports.Console()]
   });
 
-  collector(elasticTransport).subscribe({
+  collector(elasticTransport, {
+    organizations: [
+      { login: 'consensys', teams: ['web3studio'] },
+      { login: 'trufflesuite' },
+      { login: 'infura' }
+    ],
+    projectTopicFilters: ['web3studio-']
+  }).subscribe({
     error: console.log // eslint-disable-line no-console
   });
 };

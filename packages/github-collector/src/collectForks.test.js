@@ -14,7 +14,10 @@ describe('collectForks', () => {
   beforeEach(() => {
     mockGithub.beforeEach();
     transport = new TestTransport();
-    source = collectRepos().pipe(take(1));
+    source = collectRepos({
+      organizations: [{ name: 'consensys', teams: ['web3studio'] }],
+      projectTopicFilters: ['web3studio-']
+    }).pipe(take(1));
   });
 
   it('Collects repo forks and passes as events', async () => {

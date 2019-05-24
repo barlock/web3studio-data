@@ -6,8 +6,8 @@ const collectForks = require('./collectForks');
 const collectIssues = require('./collectIssues');
 const annotateUsers = require('./annotateUsers');
 
-module.exports = function collect(transport) {
-  return collectRepos().pipe(
+module.exports = function collect(transport, ops) {
+  return collectRepos(ops).pipe(
     publish(repos =>
       merge(
         repos.pipe(collectStargazers(transport)),
@@ -15,7 +15,7 @@ module.exports = function collect(transport) {
         repos.pipe(collectIssues(transport))
       )
     ),
-    annotateUsers(),
+    annotateUsers(ops),
     tap(({ event, timestamp, ...meta }) => {
       transport.logger.info({ message: event, timestamp: timestamp, ...meta });
     }),

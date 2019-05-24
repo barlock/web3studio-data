@@ -35,11 +35,9 @@ const query = gql`
   ${paging}
 `;
 
-module.exports = () =>
+module.exports = variables =>
   queryAll({
     query,
-    variables: {
-      login: 'ConsenSys'
-    },
+    variables,
     selector: ({ organization }) => organization.repositories
   });

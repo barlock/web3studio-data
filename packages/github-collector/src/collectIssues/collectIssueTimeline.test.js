@@ -15,7 +15,10 @@ describe('collectIssueTimeline', () => {
    * @returns {Observable} Test Observable
    */
   const createSource = () =>
-    collectRepos().pipe(
+    collectRepos({
+      organizations: [{ name: 'consensys', teams: ['web3studio'] }],
+      projectTopicFilters: ['web3studio-']
+    }).pipe(
       take(1),
       collectIssues(transport),
       filter(event => event.event === 'timeline'),
