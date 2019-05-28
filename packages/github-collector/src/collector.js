@@ -4,15 +4,17 @@ const collectRepos = require('./collectRepos');
 const collectStargazers = require('./collectStargazers');
 const collectForks = require('./collectForks');
 const collectIssues = require('./collectIssues');
+const collectOutsideCollaborators = require('./collectOutsideCollaborators');
 const annotateUsers = require('./annotateUsers');
 
 module.exports = function collect(transport, ops) {
   return collectRepos(ops).pipe(
     publish(repos =>
       merge(
-        repos.pipe(collectStargazers(transport)),
-        repos.pipe(collectForks(transport)),
-        repos.pipe(collectIssues(transport))
+        // repos.pipe(collectStargazers(transport)),
+        // repos.pipe(collectForks(transport)),
+        // repos.pipe(collectIssues(transport)),
+        repos.pipe(collectOutsideCollaborators(transport))
       )
     ),
     annotateUsers(ops),
